@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Convertidor="clr-namespace:Ejercicio1_4PMO2.Converters"
+             x:Class="Ejercicio1_4PMO2.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Frame BackgroundColor="#2196F3" Padding="0" CornerRadius="0">
+                    
+                </Frame>
+                <Image x:Name="img"  HeightRequest="260" WidthRequest="100" BackgroundColor="Azure" Margin="20,0,20,0" Source="{Binding imagen, Converter={StaticResource ByteToImage}}"/>
+                <Label Text="Nombre" FontSize="Subtitle" Padding="30,10,30,0" />
+                <Entry x:Name="txtnombre" Placeholder="Ingreso su nombre" Margin="30,0,30,0" FontSize="Subtitle" Text="{Binding nombres}"/>
+                <Label Text="Descripción" FontSize="Subtitle" Padding="30,10,30,0"/>
+                <Entry x:Name="txtdescripcion" Placeholder="Ingrese una descripción " Margin="30,0,30,0" FontSize="Subtitle" Text="{Binding descripcion}"/>
+
+                <Button Text="Foto" x:Name="btnFoto" Clicked="btnFoto_Clicked" Margin="0,30,30,0" WidthRequest="200" HorizontalOptions="Center" BackgroundColor="Yellow" CornerRadius="20"/>
+                <Button Text="SQlite" x:Name="btnSQlite" Clicked="btnSQlite_Clicked" Margin="0,30,30,0" WidthRequest="200" HorizontalOptions="Center" BackgroundColor="Beige" CornerRadius="20" />
+                <Button Text="Ver lista" x:Name="btnLista" Clicked="btnLista_Clicked_1" Margin="0,30,30,0" WidthRequest="200" HorizontalOptions="Center" BackgroundColor="Gray" CornerRadius="20" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+
+</ContentPage>

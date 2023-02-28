@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Convertidor="clr-namespace:Ejercicio1_4PMO2.Converters"
+             x:Class="Ejercicio1_4PMO2.Views.ListEmple">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar empleado" x:Name="toolmenu"
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="toolmenu_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listapersonas" ItemTapped="listapersonas_ItemTapped">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <Grid>
+                                <Label Grid.Column="0"
+                                       Text="{Binding codigo}"></Label>
+                                <Label Grid.Column="1"
+                                       Text="{Binding nombres}"></Label>
+                                <Label Grid.Column="2"
+                                       Text="{Binding descripcion}"></Label>
+
+                                <Image Source="{Binding imagen, Converter={StaticResource ByteToImage}}" Grid.Column="3" />
+
+
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+
+            </ListView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

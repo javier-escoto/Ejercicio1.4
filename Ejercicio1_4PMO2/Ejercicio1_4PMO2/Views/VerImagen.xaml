@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Convertidor="clr-namespace:Ejercicio1_4PMO2.Converters"
+             x:Class="Ejercicio1_4PMO2.Views.VerImagen">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="img"  HeightRequest="300" WidthRequest="100" VerticalOptions="CenterAndExpand" BackgroundColor="Azure" Margin="20,0,20,0" Source="{Binding imagen, Converter={StaticResource ByteToImage}}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
